@@ -110,6 +110,18 @@ class MCP23S17(object):
         self.isInitialized = True
         self._writeRegister(MCP23S17.MCP23S17_IOCON, MCP23S17.IOCON_INIT)
 
+        # Read GPIO state from MCP23S17
+        self._GPIOA = self._readRegister(self.MCP23S17_GPIOA)
+        self._GPIOB = self._readRegister(self.MCP23S17_GPIOB)
+
+        # Read IODIR state from MCP23S17
+        self._IODIRA = self._readRegister(self.MCP23S17_IODIRA)
+        self._IODIRB = self._readRegister(self.MCP23S17_IODIRB)
+
+        # Read GPPUA state from MCP23S17
+        self._GPPUA = self._readRegister(self.MCP23S17_GPPUA)
+        self._GPPUB = self._readRegister(self.MCP23S17_GPPUB)
+
         # set defaults
         for index in range(0, 15):
             self.setDirection(index, MCP23S17.DIR_INPUT)
