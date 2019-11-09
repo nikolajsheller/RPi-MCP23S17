@@ -111,7 +111,7 @@ class MCP23S17(object):
         self._writeRegister(MCP23S17.MCP23S17_IOCON, MCP23S17.IOCON_INIT)
 
         # set defaults
-        for index in range(0, 15):
+        for index in range(0, 16):
             self.setDirection(index, MCP23S17.DIR_INPUT)
             self.setPullupMode(index, MCP23S17.PULLUP_ENABLED)
 
