@@ -107,6 +107,8 @@ class MCP23S17(object):
         """
         self._setupGPIO()
         self._spi.open(self._bus, self._pin_cs)
+        self._spi.max_speed_hz = 10000000
+
         self.isInitialized = True
         self._writeRegister(MCP23S17.MCP23S17_IOCON, MCP23S17.IOCON_INIT)
 
